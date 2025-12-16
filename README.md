@@ -1,5 +1,5 @@
 # Tugas Besar
-**Mata kuliah : ** Analisis Kompleksitas Algoritma
+Mata kuliah :  Analisis Kompleksitas Algoritma
 
 "Implementasi Quick Sort dalam Music Sorting System"
 ------------
