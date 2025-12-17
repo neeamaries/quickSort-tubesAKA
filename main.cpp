@@ -12,6 +12,7 @@ struct Lagu {
     int durasi; // dalam detik
 };
 
+// Test Github
 // Fungsi bantuan untuk menukar data
 void tukar(Lagu& a, Lagu& b) {
     Lagu temp = a;
