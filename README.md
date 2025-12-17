@@ -6,7 +6,7 @@ Mata kuliah :  Analisis Kompleksitas Algoritma
 
 
 #### Daftar Nama Kelompok
-1. Nayyara Aurelia Putri (103072400097 )
+1. Nayyara Aurelia Putri (103072400097)
 2. Jingga Jil Carissa (103072400121)
 3. Bethari Nevyta Amaries (10307243001)
 
