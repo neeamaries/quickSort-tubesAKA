@@ -16,7 +16,7 @@ type Lagu struct {
 	Durasi int    `json:"durasi"`
 }
 
-// --- GENERATOR DATA ---
+// === GENERATE DATA ===
 func generateData(n int) []Lagu {
 	dataset := make([]Lagu, n)
 	for i := 0; i < n; i++ {
@@ -29,36 +29,37 @@ func generateData(n int) []Lagu {
 	return dataset
 }
 
-// --- FUNGSI PARTISI (Dipakai kedua metode) ---
+// === FUNGSI PARTISI (Dipakai kedua metode) ===
 func partition(arr []Lagu, low, high int) int {
-	pivot := arr[high].Durasi
+	pivot := arr[high].Durasi //Elemen terakhir menjadi pivot
 	i := low - 1
 	for j := low; j < high; j++ {
 		if arr[j].Durasi < pivot {
 			i++
-			arr[i], arr[j] = arr[j], arr[i]
+			arr[i], arr[j] = arr[j], arr[i] //Tukar posisi
 		}
 	}
 	arr[i+1], arr[high] = arr[high], arr[i+1]
 	return i + 1
 }
 
-// --- METODE 1: REKURSIF ---
+// === METODE 1: REKURSIF ===
 func quickSortRecursive(arr []Lagu, low, high int) {
 	if low < high {
+		//Partisi kiri-kanan
 		pi := partition(arr, low, high)
+		//Untuk bagian kiri
 		quickSortRecursive(arr, low, pi-1)
+		//Untuk bagian kanan
 		quickSortRecursive(arr, pi+1, high)
 	}
 }
 
-// --- METODE 2: ITERATIF (Manual Stack) ---
+// === METODE 2: ITERATIF ===
 func quickSortIterative(arr []Lagu) {
 	low := 0
 	high := len(arr) - 1
 
-	// Buat stack menggunakan slice
-	// Stack akan menyimpan pasangan (low, high)
 	stack := make([]int, 0)
 
 	// Push low dan high awal
@@ -92,7 +93,7 @@ func quickSortIterative(arr []Lagu) {
 	}
 }
 
-// --- MAIN PROGRAM ---
+// === MAIN PROGRAM ===
 func main() {
 	r := gin.Default()
 
@@ -130,7 +131,7 @@ func main() {
 		// 4. Kirim Hasil
 		c.JSON(http.StatusOK, gin.H{
 			"waktu_eksekusi": duration.Microseconds(),
-			"metode_dipakai": req.Metode, // Info tambahan (opsional)
+			"metode_dipakai": req.Metode,
 			"hasil":          data,
 		})
 	})
